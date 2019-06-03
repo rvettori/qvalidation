@@ -1,0 +1,7 @@
+.readme
+*__pycache__/
+dist/
+build/
+qvalidation.egg-info/
+qvalidation/__pycache__
+.vscode/
