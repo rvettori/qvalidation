@@ -40,7 +40,7 @@ class TestValidation(unittest.TestCase):
 
 
     def test_lambda_rule(self):
-        self.v.set_rule(field='firstname', label='First Name', rule=lambda label, field, data, args, message: False, message='{label} is invalid')
+        self.v.set_rule(field='firstname', label='First Name', rule=lambda value, label, field, data, args, message: False, message='{label} is invalid')
         self.assertDictEqual(self.v.errors(True), {'firstname': 'First Name is invalid'})
 
 
@@ -117,6 +117,11 @@ class TestValidation(unittest.TestCase):
 
     def test_default_label(self):
         self.v.set_rule(field='age', rule=lambda **kwargs: False, message='{label}')
+        self.assertEqual(self.v.errors(True)['age'], 'age')
+
+
+    def test_rule_value_in_params(self):
+        self.v.set_rule(field='age', rule=lambda value, **kwargs: value > 30, message='{label}')
         self.assertEqual(self.v.errors(True)['age'], 'age')
 
 

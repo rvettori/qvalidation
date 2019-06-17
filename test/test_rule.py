@@ -29,14 +29,14 @@ class TestRule(unittest.TestCase):
     def test_match(self):
         self.skipTest('TODO: test match')
 
+    def test_email(self):
+        self.skipTest('TODO: test match')
+
     def test_contains(self):
         self.skipTest('TODO: test contains')
 
     def test_only(self):
         self.skipTest('TODO: test only')
-
-    def test_notin(self):
-        self.skipTest('TODO: test notin')
 
     def test_greater(self):
         self.skipTest('TODO: test greater')

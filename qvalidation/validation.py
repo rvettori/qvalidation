@@ -60,8 +60,10 @@ class Validation:
     def _run(self, rule, fn, param=None):
         data = self._result_data
         message = rule.message
+        value = data.get(rule.field, None)
 
-        result = fn(field=rule.field, label=rule.label, data=data, args=rule.args, message=message)
+        result = fn(field=rule.field, label=rule.label, data=data,
+                    value=value, args=rule.args, message=message)
         if type(result) in [tuple, list]:
             is_valid = result[0] if len(result) > 0 else False
             message = (result[1] if len(result) > 1 else None)
@@ -73,7 +75,7 @@ class Validation:
         if not is_valid:
             d = defaultdict(str)
             d.update(data)
-            d['value'] = data.get(rule.field, None)
+            d['value'] = value
             d['label'] = rule.label
             d['field'] = rule.field
             d['args'] = rule.args

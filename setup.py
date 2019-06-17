@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='qvalidation',
-      version='0.1',
+      version='0.2',
       description='Simple rule validation',
       url='https://github.com/rvettori/qvalidation',
       author='Rafael Vettori',

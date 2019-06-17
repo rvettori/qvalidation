@@ -26,3 +26,9 @@ print(v.errors(True)) # return {} if valid
 
 ```
 
+# Runing Tests
+
+In root folder
+```
+$ python -m unittest
+```
